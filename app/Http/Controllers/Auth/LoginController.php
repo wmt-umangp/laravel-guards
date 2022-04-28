@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Blogger;
 use Auth;
+use Session;
 
 
 class LoginController extends Controller
@@ -69,5 +70,10 @@ class LoginController extends Controller
             return redirect()->intended('/blogger');
         }
         return back()->withInput($request->only('email','password'));
+    }
+    public function logout(Request $req){
+        Session::flush();
+        Auth::logout();
+        return redirect('/login');
     }
 }

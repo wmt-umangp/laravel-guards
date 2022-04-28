@@ -40,4 +40,4 @@ Route::group(['middleware' => 'auth:blogger'], function () {
 });
 
 
-Route::get('logout', [LoginController::class,'logout']);
+Route::get('logout', [LoginController::class,'logout'])->name('logout');
